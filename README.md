@@ -8,7 +8,7 @@ This site serves as both a technical showcase and a creative hub, blending engin
 
 ## Live Demo
 
-🔗 [Visit Portfolio](https://your-portfolio-url.com)
+🔗 [Visit Portfolio]([https://your-portfolio-url.com](https://kyaw-thi-ha-eric.vercel.app))
 
 ⸻
 
@@ -26,7 +26,7 @@ This site serves as both a technical showcase and a creative hub, blending engin
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Styling**: Custom CSS with glassmorphism and gradient effects
 - **Fonts**: Inter (Google Fonts)
-- **Deployment**: Static site (can be hosted on GitHub Pages, Netlify, Vercel, etc.)
+- **Deployment**: Static site (hosted on Vercel)
 
 ## Local Development
 
