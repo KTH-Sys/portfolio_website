@@ -1,419 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kyaw Thi Ha | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyaw Thi (Eric) Ha — Software Engineer</title>
+  <meta name="description" content="Kyaw Thi (Eric) Ha — software engineer focused on building reliable systems and thoughtful AI products. CS + Math at UC Davis." />
+  <meta name="author" content="Kyaw Thi Ha" />
+  <meta property="og:title" content="Kyaw Thi (Eric) Ha — Software Engineer" />
+  <meta property="og:description" content="Building reliable systems & thoughtful AI products. CS + Math @ UC Davis." />
+  <meta property="og:type" content="website" />
 
-  <!-- Google Fonts - Technical/Monospace -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Inspiration&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f3f3f1'/><text y='.92em' x='6' font-size='86' font-family='monospace' fill='%23242424'>k</text></svg>" />
 </head>
 <body>
 
-  <!-- ======= Top Navigation ======= -->
-  <header id="header">
-    <div class="header-inner">
-      <a href="#hero" class="logo">KTH<span class="logo-dot">.</span></a>
-      <nav class="nav-menu">
-        <ul>
-          <li class="active"><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-socials">
-        <a href="https://github.com/KTH-Sys" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://linkedin.com/in/kth10" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="mailto:ktiha@ucdavis.edu" title="Email"><i class="bi bi-envelope-fill"></i></a>
+  <!-- ░░ Preloader · metallic device frame ░░ -->
+  <div class="preloader" id="preloader">
+    <div class="bezel">
+      <div class="bezel__screen">
+        <span class="preloader__count"><span id="counter">0</span><i>%</i></span>
+        <span class="preloader__brand">Kyaw Thi Ha</span>
       </div>
-      <button class="mobile-nav-toggle" aria-label="Toggle navigation"><i class="bi bi-list"></i></button>
     </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ░░ Navigation ░░ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="brand" data-cursor>
+      <span class="brand__l1">Kyaw Thi</span>
+      <span class="brand__l2 script">Ha</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#work" data-cursor><i>+</i>Work</a>
+      <a href="#about" data-cursor><i>+</i>About</a>
+      <a href="#focus" data-cursor><i>+</i>Focus</a>
+    </nav>
+    <a href="#contact" class="nav__contact" data-cursor>Contact <span>&#8599;</span></a>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
   </header>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="hero-greeting">Hello, I'm</p>
-        <h1 class="hero-name">Kyaw Thi <span class="accent">(Eric)</span> Ha</h1>
-        <div class="typed-wrapper">
-          <span class="typed-prefix">&gt; </span>
-          <span id="typed-text"></span>
-          <span class="cursor">|</span>
-        </div>
-        <p class="hero-tagline">I code and write poems sometimes</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn-primary">Get In Touch</a>
-          <a href="#projects" class="btn-outline">View Projects</a>
-        </div>
-      </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#focus">Focus</a>
+    <a href="#contact">Contact</a>
+    <div class="mobile-menu__foot">
+      <a href="https://github.com/KTH-Sys" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kth10" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://devpost.com/KTH-Sys" target="_blank" rel="noopener">Devpost</a>
     </div>
-    <div class="scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+  </div>
 
-  <!-- ======= Main Content ======= -->
-  <main id="main">
+  <main id="top">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>About</h2>
-          <div class="title-line"></div>
+    <!-- ░░ Hero ░░ -->
+    <section class="hero" id="hero">
+      <h1 class="hero__mark" data-reveal>
+        <span class="hero__mark-l1">Eric</span>
+        <span class="hero__mark-l2 script">ha</span>
+      </h1>
+
+      <div class="hero__mid">
+        <div class="screen" id="screen" data-cursor>
+          <div class="screen__slides" id="slides" aria-hidden="true"></div>
+          <canvas class="screen__glitch" id="glitch" aria-hidden="true"></canvas>
+          <div class="screen__scan"></div>
+          <div class="screen__hud">
+            <span class="screen__tag">KTH·OS</span>
+            <span class="screen__rec"><i></i> LIVE</span>
+          </div>
         </div>
-        <div class="about-grid">
-          <div class="about-img-col">
-            <div class="about-img-wrapper">
-              <img src="assets/img/profile.jpg" alt="Kyaw Thi Ha" onerror="this.style.display='none'; this.parentElement.querySelector('.about-initials').style.display='flex';">
-              <div class="about-initials" style="display:none;">KH</div>
-            </div>
+        <p class="hero__tag">Software engineer<br/>focused on building<br/>reliable, usable products.</p>
+      </div>
+
+      <div class="hero__clock" data-reveal>
+        <span class="globe">&#9673;</span>
+        <span class="hero__clock-item">DAVIS <b id="clockLA">--:--</b></span>
+        <span class="hero__clock-item">YANGON <b id="clockMM">--:--</b></span>
+      </div>
+    </section>
+
+    <!-- ░░ Manifesto ░░ -->
+    <section class="manifesto" id="manifesto">
+      <p class="manifesto__statement" data-reveal>
+        I design and develop reliable systems &amp; thoughtful AI products, with an emphasis on
+        clarity, performance, and restraint — currently focused on backend, ML, and tools built to last.
+      </p>
+      <span class="bracket" data-reveal>&#9642; [ BASED IN DAVIS, CA // OPEN TO OPPORTUNITIES ]</span>
+
+      <div class="manifesto__foot">
+        <div class="plusgrid" data-reveal aria-hidden="true"></div>
+        <span class="manifesto__lead" data-reveal>A few projects I've<br/>built recently.</span>
+      </div>
+    </section>
+
+    <!-- ░░ Work ░░ -->
+    <section class="work" id="work">
+      <h2 class="cursive-title cursive-title--right" data-reveal>Selected Works</h2>
+
+      <div class="work__toggle" data-reveal>
+        <button class="active" data-view="column" data-cursor>[ Column ]</button>
+        <button data-view="list" data-cursor>[ List ]</button>
+      </div>
+
+      <div class="works" id="works" data-view="column">
+        <ul class="works__list">
+          <li class="wkrow active" data-img="images/sportsmom.png" data-name="SportsMom"
+              data-href="https://devpost.com/software/sportsmom-ai"
+              data-desc="Document, Plan, Compete — a training & competition companion for elite solo athletes."
+              data-tags="Hackathon · Full-Stack · Team of 4">
+            <a href="https://devpost.com/software/sportsmom-ai" target="_blank" rel="noopener" data-cursor="view">
+              <span class="wkrow__num">001</span><span class="wkrow__name">SportsMom</span>
+              <span class="wkrow__yr">2026</span>
+            </a>
+          </li>
+          <li class="wkrow" data-img="images/skaler.png" data-name="Skaler"
+              data-href="https://devpost.com/software/skaler-make-volunteering-easy"
+              data-desc="Campus volunteering, made easy — an LLM scores every opportunity 0–100 with a one-line 'why this fits you'."
+              data-tags="Next.js · TypeScript · MongoDB · Gemini">
+            <a href="https://devpost.com/software/skaler-make-volunteering-easy" target="_blank" rel="noopener" data-cursor="view">
+              <span class="wkrow__num">002</span><span class="wkrow__name">Skaler</span>
+              <span class="wkrow__yr">HackDavis '26</span>
+            </a>
+          </li>
+          <li class="wkrow" data-img="images/barter.png" data-name="Barter"
+              data-href="https://github.com/KTH-Sys/SF_Hacks2026"
+              data-desc="A swipe-to-trade, AI-powered marketplace — async FastAPI + React 19, real-time WebSocket chat, Gemini value estimation, PyTorch image classification."
+              data-tags="FastAPI · React 19 · WebSockets · PyTorch">
+            <a href="https://github.com/KTH-Sys/SF_Hacks2026" target="_blank" rel="noopener" data-cursor="view">
+              <span class="wkrow__num">003</span><span class="wkrow__name">Barter</span>
+              <span class="wkrow__yr">SFHacks '26</span>
+            </a>
+          </li>
+          <li class="wkrow" data-img="images/davis-prices.png" data-name="Davis Prices"
+              data-href="https://github.com/KTH-Sys/MLSN_Davis-House-Price-Prediction"
+              data-desc="An ML pipeline forecasting Davis, CA home prices — modular ETL over 2M+ rows, regressors benchmarked with RMSE, served via Streamlit."
+              data-tags="Python · scikit-learn · Pandas · Streamlit">
+            <a href="https://github.com/KTH-Sys/MLSN_Davis-House-Price-Prediction" target="_blank" rel="noopener" data-cursor="view">
+              <span class="wkrow__num">004</span><span class="wkrow__name">Davis House Price Prediction</span>
+              <span class="wkrow__yr">MLSN · 2025</span>
+            </a>
+          </li>
+          <li class="wkrow" data-img="images/pomibear.png" data-name="pomibear!"
+              data-href="https://devpost.com/software/productivity-monster"
+              data-desc="Productivity gone rogue — a Chrome extension that learns your browsing patterns, classifies sites with a Claude LLM, and nudges you with Fish.audio TTS."
+              data-tags="Chrome Ext. · Claude API · Fish.audio">
+            <a href="https://devpost.com/software/productivity-monster" target="_blank" rel="noopener" data-cursor="view">
+              <span class="wkrow__num">005</span><span class="wkrow__name">pomibear!</span>
+              <span class="wkrow__yr">CalHacks</span>
+            </a>
+          </li>
+        </ul>
+
+        <a class="works__preview" id="worksPreview" href="https://devpost.com/KTH-Sys" target="_blank" rel="noopener" data-cursor="view">
+          <img id="worksPreviewImg" alt="SportsMom screenshot" onerror="this.style.display='none'" />
+          <span class="works__preview-ph" id="worksPreviewPh">SportsMom</span>
+          <div class="works__preview-meta">
+            <p id="worksPreviewDesc">Document, Plan, Compete — a training &amp; competition companion for elite solo athletes.</p>
+            <span id="worksPreviewTags">Hackathon · Full-Stack · Team of 4</span>
           </div>
-          <div class="about-text-col">
-            <h3>Computer Science Student & Developer</h3>
-            <p>I'm a B.S. Computer Science student at UC Davis with a Minor in Mathematics. I'm passionate about building software that solves real problems — from full-stack applications to machine learning pipelines. When I'm not coding, I write poetry.</p>
-            <div class="about-details">
-              <div class="detail-item">
-                <span class="detail-label">Location:</span>
-                <span class="detail-value">Davis, CA</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Email:</span>
-                <span class="detail-value"><a href="mailto:ktiha@ucdavis.edu">ktiha@ucdavis.edu</a></span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Phone:</span>
-                <span class="detail-value">(323)-358-1525</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">University:</span>
-                <span class="detail-value">UC Davis</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Degree:</span>
-                <span class="detail-value">B.S. Computer Science, Minor in Mathematics</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">GitHub:</span>
-                <span class="detail-value"><a href="https://github.com/KTH-Sys" target="_blank">github.com/KTH-Sys</a></span>
-              </div>
-            </div>
-          </div>
+        </a>
+      </div>
+
+      <a class="work__all" href="https://github.com/KTH-Sys" target="_blank" rel="noopener" data-cursor>
+        View all on GitHub &#8599;
+      </a>
+    </section>
+
+    <!-- ░░ Focus (dark) ░░ -->
+    <section class="focus section--dark" id="focus">
+      <div class="focus__head">
+        <h2 class="cursive-title" data-reveal>Focus</h2>
+        <span class="bracket" data-reveal>[ WHAT I DO ]</span>
+      </div>
+      <p class="big-statement" data-reveal>
+        Mostly building and improving software that needs clarity, structure, and thoughtful execution —
+        across backend, machine learning, and full-stack.
+      </p>
+
+      <ol class="rows">
+        <li class="row" data-reveal>
+          <span class="row__num">001</span>
+          <h3 class="row__title">Backend Engineering</h3>
+          <p class="row__desc">Reliable, scalable services from idea to production — REST APIs, normalized schemas, auth and transactional consistency. Spring Boot, FastAPI, PostgreSQL.</p>
+        </li>
+        <li class="row" data-reveal>
+          <span class="row__num">002</span>
+          <h3 class="row__title">AI / ML Systems</h3>
+          <p class="row__desc">Reproducible pipelines and applied ML — ETL, training &amp; evaluation, and LLM-powered features. PyTorch, scikit-learn, Gemini &amp; Claude.</p>
+        </li>
+        <li class="row" data-reveal>
+          <span class="row__num">003</span>
+          <h3 class="row__title">Full-Stack Development</h3>
+          <p class="row__desc">Clean, responsive interfaces wired to real backends — React, WebSockets, and real-time features that feel fast and consistent across devices.</p>
+        </li>
+        <li class="row" data-reveal>
+          <span class="row__num">004</span>
+          <h3 class="row__title">Architecture &amp; Process</h3>
+          <p class="row__desc">Structuring codebases and Git workflows that grow without becoming fragile — branching strategy, PR review, making future changes easier, not harder.</p>
+        </li>
+      </ol>
+
+      <div class="focus__cta" data-reveal>
+        <span class="frag-sm">Have a project?</span>
+        <a href="#contact" class="big-link" data-cursor>Let's chat &#8599;</a>
+      </div>
+    </section>
+
+    <!-- ░░ About ░░ -->
+    <section class="about" id="about">
+      <h2 class="cursive-title cursive-title--center" data-reveal>About</h2>
+
+      <div class="about__photo" data-reveal>
+        <img src="images/profile.jpg" alt="Kyaw Thi (Eric) Ha" loading="lazy" onerror="this.remove()" />
+        <span class="about__photo-ph">KTH</span>
+      </div>
+
+      <div class="about__intro" data-reveal>
+        <span class="bracket">-- { "HELLO WORLD" }</span>
+        <p class="about__name">I'm <strong>Kyaw Thi (Eric) Ha</strong></p>
+      </div>
+
+      <div class="about__body">
+        <p class="about__lead" data-reveal>I enjoy simplifying complex ideas and turning them into tools people can actually use.</p>
+        <div class="about__cols" data-reveal>
+          <p>A Computer Science + Math student at UC Davis and an AI/ML Fellow at Break Through Tech (Cornell Tech), selected from 4,500+ applicants. As Tech Lead for the ML Student Network I architect pipelines, review PRs, and keep main always-deployable.</p>
+          <p>My work sits somewhere between engineering and design — where structure matters just as much as experience. I'm also the founder of the Burmese Students' Society. And yes — <span class="script">I code, and write poems sometimes.</span></p>
         </div>
       </div>
     </section>
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <div class="section-title">
-          <h2>Technical Skills</h2>
-          <div class="title-line"></div>
+    <!-- ░░ Experience ░░ -->
+    <section class="exp" id="experience">
+      <div class="exp__head">
+        <h2 class="cursive-title" data-reveal>Experience</h2>
+        <span class="bracket" data-reveal>[ 03 ]</span>
+      </div>
+      <div class="exp__grid">
+        <div class="card" data-reveal>
+          <p>Selected into a highly competitive AI program from <strong>4,500+ applicants</strong>; completed project-driven training through a Cornell Tech certification.</p>
+          <div class="card__by"><b>AI/ML Fellow</b><span>Break Through Tech · Cornell Tech</span></div>
         </div>
-
-        <div class="skills-category">
-          <h3 class="skills-heading"><i class="bi bi-code-slash"></i> Languages</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C/C++</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">HTML/CSS</span>
-            <span class="skill-tag">Haskell</span>
-          </div>
+        <div class="card" data-reveal>
+          <p>Defined pipeline architecture and milestones for a 4-person ML team, reviewed 20+ PRs, and kept a stable, always-deployable main branch.</p>
+          <div class="card__by"><b>Tech Lead &amp; Software Engineer</b><span>ML Student Network · UC Davis</span></div>
         </div>
-
-        <div class="skills-category">
-          <h3 class="skills-heading"><i class="bi bi-layers"></i> Frameworks & Technologies</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">Spring Boot</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">JWT</span>
-            <span class="skill-tag">FastAPI</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3 class="skills-heading"><i class="bi bi-tools"></i> Developer Tools</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Google Colab</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Streamlit</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3 class="skills-heading"><i class="bi bi-book"></i> Libraries</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Matplotlib</span>
-            <span class="skill-tag">scikit-learn</span>
-            <span class="skill-tag">PyTorch</span>
-          </div>
+        <div class="card" data-reveal>
+          <p>Tutored 10+ students a week in Python &amp; Java, breaking complex CS concepts into repeatable logic frameworks to cut debug time.</p>
+          <div class="card__by"><b>Computer Science Tutor</b><span>City College of San Francisco</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Resume</h2>
-          <div class="title-line"></div>
+    <!-- ░░ Contact (dark) ░░ -->
+    <section class="contact section--dark" id="contact">
+      <h2 class="contact__head" data-reveal><span>Good things start with</span> <span class="script">good questions.</span></h2>
+
+      <form class="form" id="contactForm" data-reveal>
+        <div class="field">
+          <label for="f-name">Name *</label>
+          <input id="f-name" name="name" type="text" placeholder="JOHN DOE" required />
         </div>
-
-        <div class="resume-grid">
-          <!-- Left Column -->
-          <div class="resume-col">
-            <h3 class="resume-category"><i class="bi bi-mortarboard-fill"></i> Education</h3>
-
-            <div class="resume-item">
-              <h4>University of California, Davis</h4>
-              <p class="resume-date"><i class="bi bi-calendar3"></i> Sep 2025 – June 2027 (Expected)</p>
-              <p class="resume-subtitle">Bachelor of Science in Computer Science | Minor in Mathematics</p>
-            </div>
-
-            <div class="resume-item">
-              <h4>City College of San Francisco</h4>
-              <p class="resume-date"><i class="bi bi-calendar3"></i> Aug 2022 – May 2025</p>
-              <p class="resume-subtitle">Associate of Science in Computer Science & Maths</p>
-              <ul>
-                <li>GPA: 3.87</li>
-                <li>Dean's List</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Right Column -->
-          <div class="resume-col">
-            <h3 class="resume-category"><i class="bi bi-briefcase-fill"></i> Experience</h3>
-
-            <div class="resume-item">
-              <h4>Tech Lead & Software Developer</h4>
-              <p class="resume-date"><i class="bi bi-calendar3"></i> Sep 2025 – Present</p>
-              <p class="resume-subtitle">Machine Learning Student Network - UC Davis</p>
-              <ul>
-                <li>Led technical direction for the project, defining pipeline structure and guiding teammates on implementation decisions</li>
-                <li>Reviewed pull requests focusing on correctness, performance, and reproducibility</li>
-                <li>Coordinated Git-based workflows (branching, reviews, merges) in a multi-developer environment</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>CodePath AI Engineer Fellow</h4>
-              <p class="resume-date"><i class="bi bi-calendar3"></i> Feb 2026 – Present</p>
-              <p class="resume-subtitle">CodePath</p>
-              <ul>
-                <li>Building production-style AI applications by integrating ML APIs, backend services, and scalable system design patterns</li>
-                <li>Strengthening algorithmic problem-solving and system design through structured interview prep and collaborative code reviews</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Computer Science Tutor</h4>
-              <p class="resume-date"><i class="bi bi-calendar3"></i> Aug 2024 – May 2025</p>
-              <p class="resume-subtitle">City College of San Francisco</p>
-              <ul>
-                <li>Guided peers through Python and Java problem-solving, debugging, and algorithm analysis</li>
-                <li>Improved students by breaking down complex programming concepts into digestible logic</li>
-              </ul>
-            </div>
+        <div class="field">
+          <label for="f-email">Email *</label>
+          <input id="f-email" name="email" type="email" placeholder="EXAMPLE@EMAIL.COM" required />
+        </div>
+        <div class="field field--full">
+          <label for="f-msg">What's on your mind? *</label>
+          <textarea id="f-msg" name="message" rows="2" placeholder="A ROLE, A PROJECT, OR JUST HELLO…" required></textarea>
+        </div>
+        <div class="field field--full">
+          <label>I'm reaching out about *</label>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="topic" value="Internship / role" checked /> Internship / role</label>
+            <label class="chip"><input type="radio" name="topic" value="Collaboration" /> Collaboration</label>
+            <label class="chip"><input type="radio" name="topic" value="Just saying hi" /> Just saying hi</label>
           </div>
         </div>
-      </div>
+        <button type="submit" class="submit" data-cursor>Start conversation &#8599;</button>
+      </form>
     </section>
 
-    <!-- ======= Projects Section ======= -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <div class="section-title">
-          <h2>Projects</h2>
-          <div class="title-line"></div>
+    <!-- ░░ Footer (dark) ░░ -->
+    <footer class="footer section--dark">
+      <div class="footer__big">Kyaw Thi <span class="script">ha</span></div>
+      <div class="footer__row">
+        <div class="footer__links">
+          <a href="https://github.com/KTH-Sys" target="_blank" rel="noopener" data-cursor>GitHub <i>&#8599;</i></a>
+          <a href="https://www.linkedin.com/in/kth10" target="_blank" rel="noopener" data-cursor>LinkedIn <i>&#8599;</i></a>
+          <a href="https://devpost.com/KTH-Sys" target="_blank" rel="noopener" data-cursor>Devpost <i>&#8599;</i></a>
+          <a href="mailto:ktiha@ucdavis.edu" data-cursor>Email <i>&#8599;</i></a>
         </div>
-
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-          <button class="filter-btn" data-filter="ml">ML / Data</button>
-          <button class="filter-btn" data-filter="backend">Backend</button>
-          <button class="filter-btn" data-filter="hackathon">Hackathon</button>
-        </div>
-
-        <div class="projects-grid">
-
-          <div class="project-card" data-category="backend fullstack">
-            <div class="project-header">
-              <i class="bi bi-folder2-open"></i>
-              <div class="project-links">
-                <a href="https://github.com/KTH-Sys" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-            <h4 class="project-title">Job Application Tracking System</h4>
-            <p class="project-description">Full-stack job tracking platform with normalized PostgreSQL schema, RESTful APIs with transactional consistency, and JWT-based authentication with role-based access control.</p>
-            <div class="project-tech">
-              <span>Java</span>
-              <span>Spring Boot</span>
-              <span>PostgreSQL</span>
-              <span>REST APIs</span>
-              <span>JWT</span>
-            </div>
-            <p class="project-date">Jan 2026 – Present</p>
-          </div>
-
-          <div class="project-card" data-category="fullstack hackathon">
-            <div class="project-header">
-              <i class="bi bi-folder2-open"></i>
-              <div class="project-links">
-                <a href="https://github.com/KTH-Sys/SF_Hacks2026" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-            <h4 class="project-title">Barter – AI-Powered Marketplace</h4>
-            <p class="project-description">Swipe-to-trade marketplace built at SFHacks with real-time WebSocket messaging, Gemini API for AI value estimation, and PyTorch MobileNetV2 for automated image classification.</p>
-            <div class="project-tech">
-              <span>FastAPI</span>
-              <span>React 19</span>
-              <span>MongoDB</span>
-              <span>WebSockets</span>
-              <span>PyTorch</span>
-            </div>
-            <p class="project-date">SFHacks</p>
-          </div>
-
-          <div class="project-card" data-category="ml">
-            <div class="project-header">
-              <i class="bi bi-folder2-open"></i>
-              <div class="project-links">
-                <a href="https://github.com/KTH-Sys/MLSN_Davis-House-Price-Prediction" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-            <h4 class="project-title">Davis House Price Prediction</h4>
-            <p class="project-description">ML pipeline processing 2M+ rows with modular ETL, baseline linear and tree-based regression models evaluated with RMSE and cross-validation, deployed via Streamlit dashboard.</p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Pandas</span>
-              <span>scikit-learn</span>
-              <span>Streamlit</span>
-            </div>
-            <p class="project-date">Sep – Dec 2025</p>
-          </div>
-
-          <div class="project-card" data-category="fullstack hackathon">
-            <div class="project-header">
-              <i class="bi bi-folder2-open"></i>
-              <div class="project-links">
-                <a href="https://github.com/mehdihdev/calhacks12.0" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-            <h4 class="project-title">Pomibear – Productivity Chrome Extension</h4>
-            <p class="project-description">Chrome extension built at CalHacks that learns browsing patterns to classify sites as productive or distracting, using Claude LLM for intelligent categorization and Fish.audio for text-to-speech nudges.</p>
-            <div class="project-tech">
-              <span>JavaScript</span>
-              <span>Node.js</span>
-              <span>Claude API</span>
-              <span>Chrome Extensions</span>
-              <span>Fish.audio</span>
-            </div>
-            <p class="project-date">CalHacks 12.0</p>
-          </div>
-
+        <div class="footer__meta">
+          <span>&copy; <span id="year">2026</span> — Designed &amp; built from scratch</span>
+          <span>Davis, CA · <span id="footTime">--:--</span></span>
         </div>
       </div>
-    </section>
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <div class="title-line"></div>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
-              <div>
-                <h4>Location</h4>
-                <p>Davis, CA</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
-              <div>
-                <h4>Email</h4>
-                <p><a href="mailto:ktiha@ucdavis.edu">ktiha@ucdavis.edu</a></p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-phone-fill"></i></div>
-              <div>
-                <h4>Phone</h4>
-                <p>(323)-358-1525</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
-              <div>
-                <h4>LinkedIn</h4>
-                <p><a href="https://linkedin.com/in/kth10" target="_blank">linkedin.com/in/kth10</a></p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-github"></i></div>
-              <div>
-                <h4>GitHub</h4>
-                <p><a href="https://github.com/KTH-Sys" target="_blank">github.com/KTH-Sys</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-form-wrapper">
-            <form id="contact-form" action="#" method="POST">
-              <div class="form-row">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-              </div>
-              <input type="text" name="subject" placeholder="Subject" required>
-              <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-              <button type="submit" class="btn-primary">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    </footer>
 
   </main>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <p>&copy; 2026 Kyaw Thi Ha. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- JS -->
-  <script src="assets/js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

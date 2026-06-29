@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / tooling
+.claude/
+.vscode/
+*.log
+
+# Node (not used, but safe)
+node_modules/
