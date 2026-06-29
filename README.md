@@ -1,8 +1,7 @@
 # Kyaw Thi (Eric) Ha — Portfolio
 
 A minimalist, light/monochrome editorial portfolio. Built from scratch with plain HTML, CSS
-and JavaScript — no framework, no build step. Closely modeled on the
-[eric-cole.framer.website](https://eric-cole.framer.website/) aesthetic.
+and JavaScript — no framework, no build step.
 
 ## Design
 - **Light / monochrome**: white bg, `#242424` ink, `#9e9e9e` muted, `#e0e0e0` gray blocks
