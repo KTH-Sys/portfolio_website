@@ -14,55 +14,56 @@
   if (pg) for (let i = 0; i < 16; i++) pg.appendChild(document.createElement("span"));
 
   /* ---------- Glitch inside the hero device screen ---------- */
+  let glitchBoost = function () {};
   (function screenGlitch() {
     const cv = document.getElementById("glitch");
     const screen = document.getElementById("screen");
     if (!cv || !screen || reduceMotion) { if (cv) cv.style.opacity = "0"; return; }
     const ctx = cv.getContext("2d");
-    let W = 0, H = 0;
+    let W = 0, H = 0, frame = 0, flash = 0, bands = [];
 
-    const tile = document.createElement("canvas"); tile.width = tile.height = 90;
+    const tile = document.createElement("canvas"); tile.width = tile.height = 96;
     const tctx = tile.getContext("2d");
-    function genTile() {
-      const img = tctx.createImageData(90, 90), d = img.data;
+    function genTile(a) {
+      const img = tctx.createImageData(96, 96), d = img.data;
       for (let i = 0; i < d.length; i += 4) {
         const v = (Math.random() * 255) | 0;
-        d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = Math.random() * 45;
+        d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = Math.random() * a;
       }
       tctx.putImageData(img, 0, 0);
     }
     function size() { const r = screen.getBoundingClientRect(); W = cv.width = Math.max(2, r.width | 0); H = cv.height = Math.max(2, r.height | 0); }
     size(); window.addEventListener("resize", size, { passive: true });
-    genTile();
+    genTile(60);
 
-    let frame = 0, bands = [];
-    function spawn() {
-      const n = 1 + ((Math.random() * 3) | 0);
+    function spawn(n, big) {
       for (let i = 0; i < n; i++) bands.push({
-        y: Math.random() * H, h: 2 + Math.random() * 26, dx: Math.random() * 30 - 15,
-        life: 4 + ((Math.random() * 9) | 0), c: "255,255,255",
+        y: Math.random() * H, h: (big ? 8 : 2) + Math.random() * (big ? 42 : 22),
+        dx: Math.random() * 44 - 22, life: 3 + ((Math.random() * (big ? 6 : 8)) | 0),
       });
     }
+    glitchBoost = function () { spawn(11, true); flash = frame + 8; };   // burst on slide switch
+
     function loop() {
       frame++;
-      ctx.fillStyle = "#0b0b0b"; ctx.fillRect(0, 0, W, H);
-      if (frame % 2 === 0) genTile();
+      const boost = frame < flash;
+      ctx.fillStyle = "#0b0b0b"; ctx.fillRect(0, 0, W, H);   // black = transparent under 'screen' blend
+      genTile(boost ? 135 : 62);
       const pat = ctx.createPattern(tile, "repeat");
-      ctx.globalAlpha = .55; ctx.fillStyle = pat;
-      ctx.save(); ctx.translate(-Math.random() * 90, -Math.random() * 90); ctx.fillRect(0, 0, W + 90, H + 90); ctx.restore();
+      ctx.globalAlpha = boost ? .85 : .5; ctx.fillStyle = pat;
+      ctx.save(); ctx.translate(-Math.random() * 96, -Math.random() * 96); ctx.fillRect(0, 0, W + 96, H + 96); ctx.restore();
       ctx.globalAlpha = 1;
-      // travelling bright scan band
-      const sy = (frame * 1.6) % (H + 60) - 30;
-      const g = ctx.createLinearGradient(0, sy, 0, sy + 50);
-      g.addColorStop(0, "rgba(255,255,255,0)"); g.addColorStop(.5, "rgba(255,255,255,.08)"); g.addColorStop(1, "rgba(255,255,255,0)");
-      ctx.fillStyle = g; ctx.fillRect(0, sy, W, 50);
-      // glitch bursts
-      if (Math.random() < 0.05) spawn();
+      const sy = (frame * 2) % (H + 60) - 30;
+      const g = ctx.createLinearGradient(0, sy, 0, sy + 46);
+      g.addColorStop(0, "rgba(255,255,255,0)"); g.addColorStop(.5, "rgba(255,255,255,.10)"); g.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = g; ctx.fillRect(0, sy, W, 46);
+      if (Math.random() < (boost ? .9 : .13)) spawn(1 + ((Math.random() * 2) | 0), boost);
       bands = bands.filter((b) => b.life-- > 0);
       bands.forEach((b) => {
-        ctx.fillStyle = "rgba(" + b.c + ",.16)"; ctx.fillRect(0, b.y, W, b.h);
-        ctx.fillStyle = "rgba(255,255,255,.10)"; ctx.fillRect(b.dx, b.y, W, 1);
+        ctx.fillStyle = "rgba(255,255,255," + (boost ? .24 : .14) + ")"; ctx.fillRect(0, b.y, W, b.h);
+        ctx.fillStyle = "rgba(255,255,255,.06)"; ctx.fillRect(b.dx, b.y, W, 1);
       });
+      if (boost && Math.random() < .5) { ctx.fillStyle = "rgba(255,255,255,.12)"; ctx.fillRect(0, 0, W, H); }
       requestAnimationFrame(loop);
     }
     loop();
@@ -87,7 +88,46 @@
       els[idx].classList.remove("active");
       idx = (idx + 1) % els.length;
       els[idx].classList.add("active");
-    }, 3000);
+      glitchBoost();
+    }, 1500);
+  })();
+
+  /* ---------- Scroll-driven fade-to-bold statements ---------- */
+  (function scrollFill() {
+    const fills = [...document.querySelectorAll(".scroll-fill")];
+    if (!fills.length) return;
+    const groups = fills.map((el) => {
+      const tokens = el.textContent.trim().split(/(\s+)/);
+      el.textContent = "";
+      tokens.forEach((tok) => {
+        if (tok === "") return;
+        if (/^\s+$/.test(tok)) el.appendChild(document.createTextNode(" "));
+        else { const s = document.createElement("span"); s.className = "w"; s.textContent = tok; el.appendChild(s); }
+      });
+      return { el, ws: [...el.querySelectorAll(".w")] };
+    });
+    const allWords = groups.flatMap((g) => g.ws);
+    if (reduceMotion) { allWords.forEach((w) => w.style.setProperty("--t", "1")); return; }
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const vh = innerHeight;
+      for (const g of groups) {
+        const r = g.el.getBoundingClientRect();
+        // progress 0→1 as the block scrolls up through the viewport
+        let p = (vh * 0.82 - r.top) / (vh * 0.55);
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        const n = g.ws.length, pos = p * n;   // fractional count of revealed words
+        for (let i = 0; i < n; i++) {
+          let t = pos - i; t = t < 0 ? 0 : t > 1 ? 1 : t;   // each word fades in, one after the next
+          g.ws[i].style.setProperty("--t", t.toFixed(3));
+        }
+      }
+    }
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
   })();
 
   /* ---------- Preloader ---------- */
@@ -95,7 +135,7 @@
   const counter = document.getElementById("counter");
   function finishLoad() {
     document.body.classList.add("loaded");
-    if (preloader) preloader.classList.add("done");
+    if (preloader) { preloader.classList.add("done"); setTimeout(() => { preloader.style.display = "none"; }, 1150); }
     document.body.style.overflow = "";
     initReveal();
   }
