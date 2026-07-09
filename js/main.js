@@ -251,7 +251,7 @@
     const email = (d.get("email") || "").toString().trim();
     const msg = (d.get("message") || "").toString().trim();
     const topic = (d.get("topic") || "Hello").toString();
-    window.location.href = `mailto:ktiha@ucdavis.edu?subject=${encodeURIComponent("Portfolio — " + topic + " — " + name)}&body=${encodeURIComponent(msg + "\n\n— " + name + "\n" + email)}`;
+    window.location.href = `mailto:kyawthiha1610@gmail.com?subject=${encodeURIComponent("Portfolio — " + topic + " — " + name)}&body=${encodeURIComponent(msg + "\n\n— " + name + "\n" + email)}`;
   });
 
   /* ---------- Kick off ---------- */
